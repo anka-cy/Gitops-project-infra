@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-gitops
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello
+  template:
+    metadata:
+      labels:
+        app: hello
+    spec:
+      containers:
+      - name: gitops-app
+        # Image tag is automatically updated by CI pipeline on every push to main
+        image: ankacy/gitops-app:fc2e2a21a5c1a1c27a8143e8c0a0ef0258bb3b35
+        ports:
+        - containerPort: 3000
