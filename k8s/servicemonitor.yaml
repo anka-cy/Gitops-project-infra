@@ -1,0 +1,15 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: hello-app-monitor
+  labels:
+    # This label is critical: it tells the kube-prometheus-stack to pick up this monitor
+    release: monitoring
+spec:
+  selector:
+    matchLabels:
+      app: hello
+  endpoints:
+  - port: http
+    path: /metrics
+    interval: 15s
