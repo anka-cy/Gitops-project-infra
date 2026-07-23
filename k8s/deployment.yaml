@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
         - name: gitops-app
-          image: ankacy/gitops-app:041144b43b70a25966566ae9cb99fabf7e33fb7f
+          image: ankacy/gitops-app:f09923c00b9185bf8d6c5d17d37a9a55bc7a82a2
           ports:
             - containerPort: 3000
